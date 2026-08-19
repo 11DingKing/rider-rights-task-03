@@ -97,7 +97,7 @@ func (i *RightsCase) IsOverdue(now time.Time) bool {
 	if i.Status.IsTerminal() {
 		return false
 	}
-	return now.After(i.Deadline)
+	return deadlineReached(now, i.Deadline)
 }
 
 func (i *RightsCase) Validate() error {
